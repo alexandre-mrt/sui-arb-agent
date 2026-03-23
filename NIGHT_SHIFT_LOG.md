@@ -157,3 +157,46 @@ keeper/
 - TypeScript files: ~15 source files + ~8 test files + ~3 mock files
 - Config files: ~6 (Move.toml, package.json, tsconfig, biome, vitest, .env.example)
 - Total: ~44 files
+
+---
+
+## Night Shift Summary — 2026-03-24
+
+### Completed
+- [x] Project scaffold (Move + TypeScript structure, configs, CLAUDE.md)
+- [x] Move contracts: vault (Bag-based generic storage), strategy config, arbitrage validator, trade events
+- [x] Move mock_pool for deterministic testing
+- [x] Move tests: 36 tests covering vault, strategy, validator, integration (all passing)
+- [x] TypeScript keeper: price feeds (DeepBook + Cetus), aggregator, strategy, PTB builder, executor, event listener, CLI
+- [x] TypeScript tests: 76 tests with fully mocked DEX APIs (all passing)
+- [x] Biome lint: 0 errors across 23 files
+- [x] Final validation: all builds, tests, and lint pass
+
+### Decisions made
+- PTB composition over direct Move imports: idiomatic Sui, avoids dependency hell
+- Bag-based vault for generic multi-coin storage
+- Flash loan + direct arbitrage dual strategy support
+- Mock pools in Move + mocked APIs in TS for devnet-independent testing
+- Event-driven listener with polling fallback for resilience
+
+### Not completed / Needs review
+- Navi Protocol integration (backup DEX) not implemented yet
+- Deployment to devnet/testnet (deferred to manual testing phase)
+- Real token pair configuration for mainnet
+- Gas optimization for PTB construction
+- Rate limiting / backoff for RPC calls
+
+### Issues encountered
+- None blocking. Clean implementation on both workstreams.
+
+### Final validation
+- Build: PASS (Move + TS)
+- Tests: 112 pass / 0 fail (36 Move + 76 TypeScript)
+- Lint: PASS (Biome, 0 errors)
+- Visual: N/A (CLI only)
+
+### Stats
+- Files created: 30 (9 Move source/test + 18 TS source/test + 3 config)
+- Files modified: 0
+- Tests: 112 pass / 0 fail
+- Commits: 4
