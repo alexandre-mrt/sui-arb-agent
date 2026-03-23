@@ -1,0 +1,9 @@
+[package]
+name = "sui_arb_agent"
+edition = "2024.beta"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "mainnet-v1.66.2" }
+
+[addresses]
+sui_arb_agent = "0x0"
