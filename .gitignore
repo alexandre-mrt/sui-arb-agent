@@ -5,3 +5,4 @@ dist/
 contracts/build/
 keeper/node_modules/
 *.log
+CLAUDE.md
